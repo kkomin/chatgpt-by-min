@@ -1,6 +1,7 @@
 "use server";
 
 import { jwtVerify, SignJWT } from "jose";
+import { cookies } from "next/headers";
 
 const secretKey = process.env.SECRET_KEY;
 const encodedKey = new TextEncoder().encode(secretKey);
@@ -30,3 +31,19 @@ export const verify = async (session: string | undefined = "") => {
         console.error("토큰 검증에 실패했습니다.", error);
     }
 };
+
+// 쿠키 세팅
+export const createSession = async (payload: SessionPayload) => {
+    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const session = await encrypt(payload);
+
+    (await cookies()).set('session', session, {
+        httpOnly: true,
+        secure: true,
+        expires: expiresAt,
+        sameSite: "lax",
+        path: "/",
+    });
+};
+
+// 쿠키 삭제
