@@ -4,9 +4,9 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import FormCard from "./FormCard";
 import { Submit } from "./submit";
-import { SignUpSchema } from "@/schemas/auth";
+import { LoginSchema } from "@/schemas/auth";
 import useFormValidate from "@/hooks/useFormValiate";
-import { TSignUpFormError } from "@/types/form";
+import { TLoginFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
 import { useActionState  } from "react";
 import { toast } from "react-hot-toast";
@@ -14,7 +14,7 @@ import { signUp } from "@/action/signup";
 
 export function LoginForm() {
     const [error, action] = useActionState(signUp, undefined);
-    const {errors, validateField} = useFormValidate<TSignUpFormError>(SignUpSchema);
+    const {errors, validateField} = useFormValidate<TLoginFormError>(LoginSchema);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         validateField(name, value);
@@ -30,17 +30,6 @@ export function LoginForm() {
         title="로그인" 
         footer={{ label: "아직 계정이 없으신가요?", href: "/signup" }}>
             <form action={action} className="space-y-6">
-                {/* 이름 */}
-                <div className="space-y-1">
-                    <Label htmlFor="name">이름</Label>
-                    <Input 
-                        id="name"
-                        name="name"
-                        placeholder="이름을 입력해주세요" 
-                        error = {!!errors?.name}
-                        onChange={handleChange}/>
-                        {errors?.name && <FormMessage message={errors?.name[0]}/>}
-                </div>
                 {/* 이메일 */}
                 <div className="space-y-1">
                     <Label htmlFor="email">이메일</Label>
