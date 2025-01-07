@@ -8,12 +8,12 @@ import { SignUpSchema } from "@/schemas/auth";
 import useFormValidate from "@/hooks/useFormValiate";
 import { TSignUpFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
-import { useFormState } from "react-dom";
+import { useActionState  } from "react";
 import { toast } from "react-hot-toast";
 import { signUp } from "@/action/signup";
 
 export default function SignUpForm() {
-    const [error, action] = useFormState(signUp, undefined);
+    const [error, action] = useActionState(signUp, undefined);
     const {errors, validateField} = useFormValidate<TSignUpFormError>(SignUpSchema);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
