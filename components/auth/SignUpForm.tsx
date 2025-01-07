@@ -1,3 +1,5 @@
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 import FormCard from "./FormCard";
 
 export default function SignUpForm() {
@@ -8,12 +10,29 @@ export default function SignUpForm() {
             <form>
                 {/* 이름 */}
                 <div>
+                    <Label htmlFor="name">이름</Label>
+                    <Input 
+                        id="name"
+                        name="name"
+                        placeholder="이름을 입력해주세요"/>
                 </div>
                 {/* 이메일 */}
                 <div>
+                    <Label htmlFor="email">이메일</Label>
+                    <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="example@example.com"/>
                 </div>
                 {/* 비밀번호 */}
                 <div>
+                    <Label htmlFor="password">비밀번호</Label>
+                    <Input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="**********"/>
                 </div>
             </form>
     </FormCard>
