@@ -47,3 +47,6 @@ export const createSession = async (payload: SessionPayload) => {
 };
 
 // 쿠키 삭제
+export const deleteSession = async () => {
+    (await cookies()).delete("session");
+};
