@@ -1,6 +1,7 @@
 "use server";
 
 import { jwtVerify, SignJWT } from "jose";
+import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 const secretKey = process.env.SECRET_KEY;
@@ -50,3 +51,14 @@ export const createSession = async (payload: SessionPayload) => {
 export const deleteSession = async () => {
     (await cookies()).delete("session");
 };
+
+// 쿠키 검증
+export const verifySession = async() => {
+    const cookie = (await cookies()).get('session')?.value;
+    const session = await verify('cookie');
+
+    if(!session?.id){
+        redirect('/login');
+    }
+    return session;
+}
