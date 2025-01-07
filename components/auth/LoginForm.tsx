@@ -10,10 +10,10 @@ import { TLoginFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
 import { useActionState  } from "react";
 import { toast } from "react-hot-toast";
-import { signUp } from "@/action/signup";
+import { login } from "@/action/login";
 
 export function LoginForm() {
-    const [error, action] = useActionState(signUp, undefined);
+    const [error, action] = useActionState(login, undefined);
     const {errors, validateField} = useFormValidate<TLoginFormError>(LoginSchema);
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
