@@ -35,7 +35,7 @@ export default function SignUpForm() {
                         type="password"
                         placeholder="**********"/>
                 </div>
-                <Submit>회원가입</Submit>
+                <Submit className="w-full">회원가입</Submit>
             </form>
     </FormCard>
     );
