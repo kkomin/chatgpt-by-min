@@ -1,6 +1,7 @@
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import FormCard from "./FormCard";
+import { Submit } from "./submit";
 
 export default function SignUpForm() {
     return (
@@ -34,6 +35,7 @@ export default function SignUpForm() {
                         type="password"
                         placeholder="**********"/>
                 </div>
+                <Submit>회원가입</Submit>
             </form>
     </FormCard>
     );
