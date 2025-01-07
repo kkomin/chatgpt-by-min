@@ -10,7 +10,7 @@ import { TSignUpFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
 import { useActionState  } from "react";
 import { toast } from "react-hot-toast";
-import { signUp } from "@/action/signup";
+import { signUp } from "@/actions/signup";
 
 export default function SignUpForm() {
     const [error, action] = useActionState(signUp, undefined);

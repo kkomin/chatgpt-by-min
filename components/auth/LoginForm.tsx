@@ -10,7 +10,7 @@ import { TLoginFormError } from "@/types/form";
 import { FormMessage } from "./FormMessage";
 import { useActionState  } from "react";
 import { toast } from "react-hot-toast";
-import { login } from "@/action/login";
+import { login } from "@/actions/login";
 
 export function LoginForm() {
     const [error, action] = useActionState(login, undefined);
