@@ -7,9 +7,9 @@ export default function SignUpForm() {
     <FormCard 
         title="회원가입" 
         footer={{ label: "이미 계정이 있으신가요?", href: "/login" }}>
-            <form>
+            <form className="space-y-6">
                 {/* 이름 */}
-                <div>
+                <div className="space-y-1">
                     <Label htmlFor="name">이름</Label>
                     <Input 
                         id="name"
@@ -17,7 +17,7 @@ export default function SignUpForm() {
                         placeholder="이름을 입력해주세요"/>
                 </div>
                 {/* 이메일 */}
-                <div>
+                <div className="space-y-1">
                     <Label htmlFor="email">이메일</Label>
                     <Input
                         id="email"
@@ -26,7 +26,7 @@ export default function SignUpForm() {
                         placeholder="example@example.com"/>
                 </div>
                 {/* 비밀번호 */}
-                <div>
+                <div className="space-y-1">
                     <Label htmlFor="password">비밀번호</Label>
                     <Input
                         id="password"
